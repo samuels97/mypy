@@ -26,3 +26,13 @@ def load_data(filename):
     for name, value in zip(ynames, yvalues):
       y[name].append(value)
   return y, dt
+
+def dump_data(y, dt):
+  for name in y.keys():
+    Ofile = open(name+'.dat', 'w')
+    for k in range(len(y[name])):
+      ofile.write('%12g %12.5e\n' % (k*dt, y[name][k]))
+    ofile.close()
+
+
+
